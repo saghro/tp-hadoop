@@ -140,3 +140,86 @@ hdfs dfs -rm -r /backup/
 ## 💻 Exercice 2 : Programmes Java
 
 ### Structure des programmes
+java-programs/
+├── LireFichier.java      # Programme de lecture
+├── EcrireFichier.java    # Programme d'écriture
+├── LireFichier.class     # Compilé
+└── EcrireFichier.class   # Compilé
+### Programme 1 : Lire un fichier HDFS
+
+**Fichier** : `LireFichier.java`
+
+**Fonctionnalité** : Lit le contenu d'un fichier depuis HDFS et l'affiche ligne par ligne.
+
+**Chemin HDFS** : `/input/data.txt`
+
+### Programme 2 : Écrire dans HDFS
+
+**Fichier** : `EcrireFichier.java`
+
+**Fonctionnalité** : Crée un nouveau fichier dans HDFS avec du contenu formaté et un timestamp.
+
+**Chemin HDFS** : `/output/nouveau_fichier.txt`
+
+### Compilation et Exécution
+
+#### Dans le conteneur
+```bash
+# Entrer dans le conteneur
+docker exec -it namenode bash
+
+# Aller dans le répertoire
+cd /opt/hadoop-java
+
+# Définir CLASSPATH
+export HADOOP_CLASSPATH=$(hadoop classpath)
+
+# Compiler avec UTF-8
+javac -encoding UTF-8 -classpath $HADOOP_CLASSPATH LireFichier.java
+javac -encoding UTF-8 -classpath $HADOOP_CLASSPATH EcrireFichier.java
+
+# Exécuter
+java -classpath .:$HADOOP_CLASSPATH EcrireFichier
+java -classpath .:$HADOOP_CLASSPATH LireFichier
+```
+
+#### Vérifier les résultats
+```bash
+# Lister les fichiers créés
+hdfs dfs -ls /output/
+
+# Afficher le contenu
+hdfs dfs -cat /output/nouveau_fichier.txt
+```
+
+## 📊 Résultats Obtenus
+
+### Exercice 1
+✅ Toutes les commandes HDFS testées avec succès
+- Création de répertoires
+- Upload/Download de fichiers
+- Manipulation (copie, déplacement, renommage)
+- Gestion des permissions
+- Diagnostics système
+
+### Exercice 2
+✅ Programmes Java fonctionnels
+- **LireFichier.java** : Lecture réussie du fichier `/input/data.txt`
+- **EcrireFichier.java** : Création réussie de `/output/nouveau_fichier.txt`
+
+## 📸 Captures d'écran
+
+Les captures d'écran sont disponibles dans le dossier `/screenshots/` :
+- `1-docker-containers.png` : Conteneurs en cours d'exécution
+- `2-hdfs-web-interface.png` : Interface web HDFS
+- `3-hdfs-commands.png` : Exécution des commandes HDFS
+- `4-java-compilation.png` : Compilation des programmes Java
+- `5-java-execution.png` : Exécution des programmes Java
+
+## 🛠️ Technologies Utilisées
+- **Hadoop** : 3.2.1
+- **Docker** : Desktop pour Mac
+- **Java** : 1.8.0_232
+- **OS** : macOS
+
+
