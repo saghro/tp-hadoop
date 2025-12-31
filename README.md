@@ -1,8 +1,8 @@
 # TP Hadoop avec Docker
 
 ## 👨‍🎓 Informations
-- **Nom**: [Votre Nom]
-- **Classe**: [Votre Classe]
+- **Nom**: Ayoub SAGHRO
+- **Classe**: MIT
 - **Date**: 31 Décembre 2025
 - **Sujet**: Travaux Pratiques Hadoop - Commandes HDFS et Programmation Java
 
