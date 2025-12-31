@@ -1,0 +1,14 @@
+# Docker volumes
+hadoop_namenode/
+hadoop_datanode/
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.iml
